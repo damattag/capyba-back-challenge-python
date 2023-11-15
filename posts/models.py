@@ -7,11 +7,12 @@ class User(models.Model):
     name = models.TextField()
     email = models.TextField(unique=True)
     password = models.TextField()
-    image = models.TextField()
+    image = models.TextField(blank=True, null=True)
     accepted_terms = models.BooleanField()
     email_verified = models.BooleanField(default=False)
-    email_verification_token = models.TextField()
-    email_verification_token_expiry = models.DateTimeField()
+    email_verification_token = models.TextField(blank=True, null=True)
+    email_verification_token_expiry = models.DateTimeField(
+        blank=True, null=True)
     role = models.TextField(default='user')
 
 
