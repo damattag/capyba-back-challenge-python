@@ -1,5 +1,7 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, filters
+from rest_framework.permissions import IsAuthenticated
+
 from posts.api import serializers
 from posts import models
 
@@ -7,6 +9,9 @@ from posts import models
 class PostsViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.PostsSerializer
     queryset = models.Post.objects.all()
+
+    permission_classes = [IsAuthenticated]
+
     filter_backends = [DjangoFilterBackend,
                        filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['published']
@@ -23,6 +28,9 @@ class UsersViewSet(viewsets.ModelViewSet):
 class CommentsViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.CommentsSerializer
     queryset = models.Comment.objects.all()
+
+    permission_classes = [IsAuthenticated]
+
     filter_backends = [DjangoFilterBackend,
                        filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['edited']
