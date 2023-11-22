@@ -1,41 +1,54 @@
 # capyba-back-challenge
 This repository is intended for the Capyba Software challenge
 
-# TASKS
+## Stack for this project
 
-## 1. Login e cadastro
-[x] Cadastro de usuário;
-[x] Termos de uso;
-[] Login;
-[] Logout;
+1. Python;
+2. Django;
+3. Django Rest Framework;
 
-## 2. Área para pessoas logadas
-[x] Lista paginada de itens públicos;
-[x] Lista deve retornar os objetos da pagina e o total de objetos;
-[x] Busca por texto;
-[x] Filtragem por um campo do model;
+## Running the project
 
-## 3. Meu perfil
-[x] editar usuário;
+1. Be sure you have **python** and **pip** installed.
 
-## 4. Confirmação de email
-[] envio do token via email;
-[] validação do token;
+2. Clone the repository by running 
+```bash 
+git clone https://github.com/damattag/capyba-back-challenge-python.git
+```
 
-## 5. Área restrita
-[] lista paginada de itens privados;
-[] Lista deve retornar os objetos da pagina e o total de objetos;
-[] Busca por texto;
-[] Filtragem por um campo do model;
+3. In your vs code activate virtual env
+```bash 
+# Linux
+sudo apt-get install python3-venv    # If needed
+python3 -m venv .venv
+source .venv/bin/activate
 
-## Observações
-[] testes unitários;
-[] documentação na OpenAI;
-[] readme de como rodar o projeto;
+# macOS
+python3 -m venv .venv
+source .venv/bin/activate
 
-## Bônus
-[] deploy;
-[] admin;
-[] confirmação de senha para alterar a senha;
-[] cadastro via api do google;
-[] seed;
+# Windows
+py -3 -m venv .venv
+.venv\scripts\activate
+```
+
+4. Install all dependencies:
+```bash
+pip install --upgrade pip
+pip install django
+pip install djangorestframework
+pip install django-filter
+pip install djangorestframework-simplejwt
+```
+
+5. To run the migrations, run the server as described and on a new terminal, run:
+```bash
+python manage.py migrate
+```
+
+6. To run the project, run the migrations as described and on terminal, run:
+```bash
+python manage.py runserver
+```
+
+8. Now the server should be running!
